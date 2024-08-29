@@ -10,7 +10,7 @@ def filter_by_state(list_dict: list[dict[str, Any]], state: str = "EXECUTED") ->
     return new_list
 
 
-def sort_by_date(list_dict: list[dict[str, Any]], reverse_znach: bool = True) -> list[dict[str, Any]]:
+def sort_by_date(list_dict: list[dict[str, Any]], reverse: bool = True) -> list[dict[str, Any]]:
     """Функция сортирует данные по дате"""
-    sorted_date = sorted(list_dict, key=lambda x: x["date"], reverse=reverse_znach)
+    sorted_date = sorted(list_dict, key=lambda x: x["date"], reverse=reverse)
     return sorted_date
