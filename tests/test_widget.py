@@ -1,3 +1,5 @@
+from typing import Any
+
 import pytest
 
 from src.widget import get_date, mask_account_card
@@ -10,10 +12,12 @@ from src.widget import get_date, mask_account_card
         ("Счет 73654108430135874305", "Счет **4305"),
     ],
 )
-def test_mask_account_card(mask_account_card_fix, account: str, account_hide: str) -> None:
-    assert mask_account_card(mask_account_card_fix, account) == account_hide
+def test_mask_account_card(account: Any, account_hide: Any) -> Any:
+    assert mask_account_card(account) == account_hide
+    pass
 
 
 @pytest.mark.parametrize("date, new_date", [("2024-03-11T02:26:18.671407", "11.03.2024")])
-def test_get_date(mask_account_card_fix_type, date: str, new_date: str) -> None:
-    assert get_date(mask_account_card_fix_type, date) == new_date
+def test_get_date(date: Any, new_date: Any) -> Any:
+    assert get_date(date) == new_date
+    pass
