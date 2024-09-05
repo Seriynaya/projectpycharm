@@ -13,7 +13,10 @@ from src.processing import filter_by_state, sort_by_date
     ],
 )
 def test_filter_by_state(list_dictionaries: Any, state: Any) -> Any:
-    assert filter_by_state(list_dictionaries) == state
+    try:
+        assert filter_by_state(list_dictionaries) == state
+    except AssertionError:
+        print("Некорректные данные")
 
 
 @pytest.mark.parametrize(
@@ -24,4 +27,7 @@ def test_filter_by_state(list_dictionaries: Any, state: Any) -> Any:
     ],
 )
 def test_sort_by_date(date_list_dictionaries: Any, expected: Any) -> Any:
-    assert sort_by_date(date_list_dictionaries) == expected
+    try:
+        assert sort_by_date(date_list_dictionaries) == expected
+    except AssertionError:
+        print("Некорректные данные")

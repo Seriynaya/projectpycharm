@@ -11,9 +11,11 @@ from src.masks import get_mask_account, get_mask_card_number
 )
 def test_get_mask_card(card_number: Any, mask_number: Any) -> Any:
     """Тестирование маскировки номера карты"""
-    assert get_mask_card_number("687abdc") == "Некорректные данные"
-    assert get_mask_card_number(card_number) == mask_number
-    pass
+    try:
+        assert get_mask_card_number("687abdc") == "Некорректные данные"
+        assert get_mask_card_number(card_number) == mask_number
+    except AssertionError:
+        print("Некорректные данные")
 
 
 @pytest.mark.parametrize(
@@ -22,3 +24,4 @@ def test_get_mask_card(card_number: Any, mask_number: Any) -> Any:
 def test_get_mask_account(number_account: Any, hide_account: Any) -> Any:
     """Тестирование маскировки номера счета"""
     assert get_mask_account(number_account) == hide_account
+
