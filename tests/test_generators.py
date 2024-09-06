@@ -1,8 +1,8 @@
 from typing import Any
+
 import pytest
-from src.generators import (card_number_generator, filter_by_currency,
-                            transaction_descriptions)
-from tests.confitest import transaction_list, usd_transaction
+
+from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 
 
 def test_filter_by_currency(transaction_list: Any, usd_transaction: Any) -> Any:
@@ -13,7 +13,7 @@ def test_filter_by_currency(transaction_list: Any, usd_transaction: Any) -> Any:
         print("Введены некорректные данные")
 
 
-def test_transaction_descriptions(transaction_list: Any) -> list[dict]:
+def test_transaction_descriptions(transaction_list: Any) -> Any:
     """Функция тестирует генератор транзакций"""
     num = transaction_descriptions(transaction_list)
     try:
