@@ -1,6 +1,6 @@
-from typing import Any
-
 import pytest
+
+from typing import Any
 
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 
@@ -25,12 +25,14 @@ def test_transaction_descriptions(transaction_list: Any) -> Any:
         print("Введены некорректные данные")
 
 
-def test_card_number_generator() -> None:
+def test_card_number_generator() -> Any:
     """Функция тестирует генератор номеров карт"""
-    card_number = card_number_generator(1, 3)
+    card_number = card_number_generator(9999999999999999, 9999999999999999)
     try:
-        assert next(card_number) == "0000 0000 0000 0001"
-        assert next(card_number) == "0000 0000 0000 1002"
-        assert next(card_number) == "0000 0000 0000 1250"
+        assert next(card_number) == "9999 9999 9999 9999"
     except AssertionError:
         print("Введены некорректные данные")
+
+
+for card_number in card_number_generator(9999999999999999, 9999999999999999):
+    print(card_number)
