@@ -10,7 +10,7 @@ def test_function_success(x, y):
 
 @log()
 def test_function_error(x, y):
-    raise ValueError("Function error")
+    raise ValueError("Test error")
 
 
 def test_log_success(capsys):
@@ -36,7 +36,7 @@ def test_log_to_file(tmpdir):
 
     @log(filename=str(log_file))
     def test_function_file_error(x, y):
-        raise ValueError("Function error")
+        raise ValueError("Test error")
 
     test_function_file_success(1, 2)
 
