@@ -30,7 +30,7 @@ def test_get_transactions_dictionary(open_mock):
 
 
 def test_get_transactions_dictionary_0(get_path):
-    assert get_transactions_dictionary(get_path)[0] == {
+    assert get_transactions_dictionary(get_path)[0] == [{
         "id": 441945886,
         "state": "EXECUTED",
         "date": "2019-08-26T10:50:58.294041",
@@ -38,7 +38,7 @@ def test_get_transactions_dictionary_0(get_path):
         "description": "Перевод организации",
         "from": "Maestro 1596837868705199",
         "to": "Счет 64686473678894779589",
-    }
+    }]
 
 
 def test_get_transactions_dictionary_1(get_wrong_path):
