@@ -15,12 +15,5 @@ def convert_from_i_to_rub(transaction):
         headers = {"apikey": f"{API_KEY}"}
 
         response = requests.get(url, headers=headers)
-
-        # status_code = response.status_code
-        # result = response.json()
-        #
-        # convert_currency = result["rates"]["RUB"]
-        # convert_in_RUB = round(convert_currency * amount, 2)
-        # return response.json()
         return round(response.json()["rates"]["RUB"] * amount, 2)
     return amount
