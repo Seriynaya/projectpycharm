@@ -1,11 +1,12 @@
 import re
-from typing import Dict, List
 from collections import Counter
+from typing import Dict, List
+
 from src.utils import transaction
 
 
 def search_by_string(list_dict: List[dict], search_str: str) -> List[dict]:
-    """Функция возвращает список словарей, у которых в описании есть строка поиска вводимая пользователем"""
+    """Функция возвращает список словарей, у которых в описании есть строка введенная клиентом"""
     new_list = []
     for transactions in list_dict:
         if "description" in transactions and re.search(search_str, transactions["description"], flags=re.IGNORECASE):
@@ -20,12 +21,11 @@ if __name__ == "__main__":
 
 
 def counter_by_description(transactions: List[Dict], operations_categories: List[str]) -> Dict[str, int]:
-    """Функция возвращает словарь, в котором ключи — это названия категорий, а значения —
-    это количество операций в каждой категории"""
+    """Функция возвращает словарь с количеством операций определенной категории"""
     list_operations_categories = []
-    for transaction in transactions:
-        if "description" in transaction and transaction["description"] in operations_categories:
-            list_operations_categories.append(transaction["description"])
+    for transaction_word in transactions:
+        if "description" in transaction_word and transaction_word["description"] in operations_categories:
+            list_operations_categories.append(transaction_word["description"])
     sorted_transaction = Counter(list_operations_categories)
     return dict(sorted_transaction)
 
